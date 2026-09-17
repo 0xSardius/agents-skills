@@ -21,7 +21,7 @@ metadata:
 SolEnrich turns raw Solana data into verdicts an agent can act on. It complements the ClawPump trade and
 launch tools as the research step before `swap_execute` or a launch, and the monitoring step while a
 position is open. **Read-only. Never signs a trade.** The agent pays USDC per call over x402 from its own
-wallet; there is no account and no API key. 44 paid endpoints from $0.001 to $0.25, plus one free.
+wallet; there is no account and no API key. 45 paid endpoints from $0.001 to $0.25, plus one free.
 
 Base URL: `https://api.solenrich.com`. Every paid route is `POST /entrypoints/{key}/invoke` with a JSON
 body. `format` is `json` (default), `llm` (a short deterministic briefing), or `both`.
@@ -76,6 +76,7 @@ Free without any wallet: `GET /docs`, `GET /llms.txt`, `POST /demo/enrich` (10 p
 | Funding across Jupiter, Adrena, Flash, Hyperliquid, dYdX | `perps-cross-venue-funding` `{ "market" }` | $0.015 |
 | StonkFun gems (early, real, paying) | `stonk-gems` `{}` | $0.03 |
 | Is this StonkFun coin paying holders, tax cost | `stonk-reward-risk` `{ "mint" }` | $0.005 |
+| What a StonkFun trade costs at my size, and whether payouts cover it | `stonk-quote` `{ "mint", "size_usd", "hold_days" }` | $0.005 |
 | What to launch on StonkFun, against what | `stonk-launch-intel` `{}` | $0.02 |
 | Plain-English question | `query` `{ "question" }` | $0.003 |
 
